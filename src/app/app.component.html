@@ -1,0 +1,8 @@
+<md-toolbar color="yellow">
+  Simple Order Element
+  </md-toolbar>
+<div class="container" id="page">
+  <router-outlet (activate)="activateEvent($event)" (deactivate)="deactivateEvent($event)"></router-outlet>
+</div>
+
+<my-store-devtools *ngIf="showMonitor"></my-store-devtools>

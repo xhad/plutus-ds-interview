@@ -1,0 +1,29 @@
+<form (onSubmit)="order" [formGroup]="order">
+  <md-card class="order-form">
+    <div class="row mb10">
+      <div class="col-sm-6">
+        <div for="price">PRICE <b>{{currency}}</b></div>
+        <input formControlName="price" class="form-control price-input mb10" placeholder="{{price}}" />
+        <div for="amount">AMOUNT</div>
+        <input formControlName="amount" class="form-control amount-input mb10" placeholder="{{amount}}" />
+      </div>
+      <div class="col-sm-6">
+        <div clas="mt10"></div>
+        <md-select class="mt20" placeholder="Order Type" value="LIMIT" formControlName="type">
+          <md-option value="LIMIT">Limit</md-option>
+          <md-option value="LIMIT">Market</md-option>
+
+          <md-option *ngFor="let type of orderTypes" value="MARKET">{{type.viewValue}}</md-option>
+        </md-select>
+      </div>
+      <ul>
+          <li *ngFor = "let type of orderTypes">{{type}}</li>
+      </ul>
+    </div>
+    {{errorMessage}}
+    <div class="row">
+      <button (click)="placeOrder.emit(order)" md-raised-button class="buy-button mb10">BUY</button>
+      <button (click)="placeOrder.emit(order)" md-raised-button class="sell-button">SELL</button>
+    </div>
+  </md-card>
+</form>
