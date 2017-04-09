@@ -15,10 +15,8 @@ import { v1 } from 'uuid';
 
 export class OrderFormComponent {
 
-  @Output() placeOrder = new EventEmitter();
-  
   order: FormGroup;
-  currency = 'USD';
+  currency = 'KRW';
   orderTypes: [
     {value: 'MARKET', viewValue: 'Market Order'},
     {value: 'LIMIT', viewValue: 'Limit Order'}
@@ -42,16 +40,11 @@ export class OrderFormComponent {
     })
   }
 
-  buy(order) {
+  buy(order: Order) {
    this.store.dispatch(this.orderActions.buyOrder(order));
   }
 
-  orderId(order, callback) {
-    order.id = v1();
-    console.log(v1());
-  }
-
-  sell(order) {
-    this.store.dispatch(this.orderActions.sellOrder(order));
+  sell(order: Order) {
+      this.store.dispatch(this.orderActions.sellOrder(order));
   }
 }

@@ -32,4 +32,19 @@ export class OrderEffects {
         this.orderActions.failedOrder(err)
       ))
     );
+
+  @Effect() sell$ = this.actions$
+    .ofType(OrderActions.SELL_ORDER)
+    .map(action => action.payload)
+    .switchMap(() => this.orderService.sell()
+    // order service returns a status message and order id
+      .mergeMap((id: any) => Observable.of(
+        this.orderActions.pendingOrder(id)
+        )
+      )
+      .catch((err) => Observable.of(
+        // returns a status message, order id and reason
+        this.orderActions.failedOrder(err)
+      ))
+    );  
 }

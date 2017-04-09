@@ -24,7 +24,7 @@ export function orderReducer(state = initialState, action: Action): OrderState {
     }
 
     case OrderActions.SELL_ORDER: {
-      return Object.assign(state, {
+      return Object.assign({}, state, {
         pendingOrders: [...state.pendingOrders, action.payload ]
       });
     }
