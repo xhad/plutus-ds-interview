@@ -10,8 +10,8 @@ export interface OrderState {
 };
 
 export const initialState: OrderState = {
-  pendingOrders: null,
-  filledOrders: null
+  pendingOrders: [],
+  filledOrders: []
 };
 
 export function orderReducer(state = initialState, action: Action): OrderState {
@@ -19,12 +19,12 @@ export function orderReducer(state = initialState, action: Action): OrderState {
 
     case OrderActions.BUY_ORDER: {
       return Object.assign({}, state, {
-        pendingOrders: [...state.pendingOrders, action.payload ]
-      });
+        pendingOrders: [...state.pendingOrders, action.payload]
+      })
     }
 
     case OrderActions.SELL_ORDER: {
-      return Object.assign({}, state, {
+      return Object.assign(state, {
         pendingOrders: [...state.pendingOrders, action.payload ]
       });
     }

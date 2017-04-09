@@ -1,7 +1,11 @@
 import { Component, Input, Output, OnChanges ,EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { AppState } from '../../reducers';
+import { Store } from '@ngrx/store';
 import { Order } from '../../order/order.model';
+import { OrderActions } from '../../order/order.actions';
+import { v1 } from 'uuid';
 
 @Component({
   selector: 'order-form',
@@ -22,7 +26,10 @@ export class OrderFormComponent {
   ];
   errorMessage = '';
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+      private store: Store<AppState>,
+      private orderActions: OrderActions,
+      private formBuilder: FormBuilder) {
     this.createForm();
   }
 
@@ -33,5 +40,18 @@ export class OrderFormComponent {
       price: [''],
       amount: ['']
     })
+  }
+
+  buy(order) {
+   this.store.dispatch(this.orderActions.buyOrder(order));
+  }
+
+  orderId(order, callback) {
+    order.id = v1();
+    console.log(v1());
+  }
+
+  sell(order) {
+    this.store.dispatch(this.orderActions.sellOrder(order));
   }
 }

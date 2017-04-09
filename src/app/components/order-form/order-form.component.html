@@ -22,8 +22,8 @@
     </div>
     {{errorMessage}}
     <div class="row">
-      <button (click)="placeOrder.emit(order)" md-raised-button class="buy-button mb10">BUY</button>
-      <button (click)="placeOrder.emit(order)" md-raised-button class="sell-button">SELL</button>
+      <button (click)="buy(order.value)" md-raised-button class="buy-button mb10">BUY</button>
+      <button (click)="sell(order.value)" md-raised-button class="sell-button">SELL</button>
     </div>
   </md-card>
 </form>

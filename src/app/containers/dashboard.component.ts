@@ -28,7 +28,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
   constructor(
 
     private store: Store<AppState>,
-    private userActions: OrderActions,
+    private orderActions: OrderActions,
   ) { }
 
   ngOnInit() {
