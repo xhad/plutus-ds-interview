@@ -32,10 +32,10 @@ export class OrderActions {
     }
   }
 
-  static ORDER_FILLED_SUCCESS = '[Order] Filled';
-  filledOrder(order: Order): Action {
+  static ORDER_SUCCESS = '[Order] Filled';
+  successfulOrder(order: Order): Action {
     return {
-      type: OrderActions.ORDER_FILLED_SUCCESS,
+      type: OrderActions.ORDER_SUCCESS,
       payload: order
     }
   }
@@ -60,6 +60,14 @@ export class OrderActions {
   cancelOrderSuccess(id: string): Action {
     return {
       type: OrderActions.CANCEL_ORDER_SUCCESS,
+      payload: id
+    }
+  }
+
+  static CANCEL_ORDER_FAILED = '[Order] Cancel Success';
+  cancelOrderFailed(id: string): Action {
+    return {
+      type: OrderActions.CANCEL_ORDER_FAILED,
       payload: id
     }
   }

@@ -47,4 +47,15 @@ export class OrderFormComponent {
   sell(order: Order) {
       this.store.dispatch(this.orderActions.sellOrder(order));
   }
+
+  placeOrder(type, order) {
+    order.side = type;
+    order.id = v1();
+    switch(type) {
+      case 'BUY':
+        this.buy(order);
+      case 'SELL':
+        this.sell(order);
+    }
+  }
 }

@@ -11,7 +11,7 @@
         <div clas="mt10"></div>
         <md-select class="mt20" placeholder="Order Type" value="LIMIT" formControlName="type">
           <md-option value="LIMIT">Limit</md-option>
-          <md-option value="LIMIT">Market</md-option>
+          <md-option value="MARKET">Market</md-option>
 
           <md-option *ngFor="let type of orderTypes" value="MARKET">{{type.viewValue}}</md-option>
         </md-select>
@@ -22,8 +22,8 @@
     </div>
     {{errorMessage}}
     <div class="row">
-      <button (click)="buy(order.value)" md-raised-button class="buy-button mb10">BUY</button>
-      <button (click)="sell(order.value)" md-raised-button class="sell-button">SELL</button>
+      <button (click)="placeOrder('BUY', order.value)" md-raised-button class="buy-button mb10">BUY</button>
+      <button (click)="placeOrder('SELL', order.value)" md-raised-button class="sell-button">SELL</button>
     </div>
   </md-card>
 </form>
