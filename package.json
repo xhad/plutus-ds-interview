@@ -1,6 +1,6 @@
 {
   "name": "plutus-ds-interview",
-  "version": "1.15.0",
+  "version": "0.0.1",
   "description": "Angular2, Ngrx, Material Design, Firebase",
   "author": "LYNCH <chad@sentigence.com",
   "repository": {
@@ -189,5 +189,5 @@
     "webpack-merge": "~4.1.0"
   },
   "license": "MIT",
-  "homepage": "https://plutus.anybean.co"
+  "homepage": "https://dev.anybean.co"
 }
