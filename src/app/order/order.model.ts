@@ -5,5 +5,5 @@ export interface Order {
   readonly amount: number, 
   readonly price: number,
   readonly type: string,
-  readonly status: 'PENDING' | 'FILLED'
+  readonly status: 'PENDING' | 'FILLED' | 'CANCELED' | 'FAILED';
 }

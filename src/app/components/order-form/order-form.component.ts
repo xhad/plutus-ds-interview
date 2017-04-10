@@ -17,12 +17,13 @@ export class OrderFormComponent {
 
   order: FormGroup;
   currency = 'KRW';
-  orderTypes: [
-    {value: 'MARKET', viewValue: 'Market Order'},
-    {value: 'LIMIT', viewValue: 'Limit Order'}
-
+  types: Object = [
+    {value: 'LIMIT', viewValue: 'Limit Order'},
+    {value: 'MARKET', viewValue: 'Market Order'}
   ];
-  errorMessage = '';
+
+  selectedValue: string = this.types[0].value;
+  errorMessage: string = '';
 
   constructor(
       private store: Store<AppState>,
@@ -33,10 +34,10 @@ export class OrderFormComponent {
 
   createForm() {
    this.order = this.formBuilder.group({
-      type: [''],
+      type: ['LIMIT'],
       side: [''],
-      price: [''],
-      amount: ['']
+      price: [0, Validators.required],
+      amount: [0, Validators.required]
     })
   }
 
@@ -48,14 +49,15 @@ export class OrderFormComponent {
       this.store.dispatch(this.orderActions.sellOrder(order));
   }
 
-  placeOrder(type, order) {
-    order.side = type;
-    order.id = v1();
-    switch(type) {
+  placeOrder(side, order) {
+    let newOrder = Object.assign({}, order, {side: side, id: v1()}); 
+    // add a unique timebased random unique 
+    // identifier to order
+    switch(side) {
       case 'BUY':
-        this.buy(order);
+        return this.buy(newOrder);
       case 'SELL':
-        this.sell(order);
+        return this.sell(newOrder);
     }
   }
 }
