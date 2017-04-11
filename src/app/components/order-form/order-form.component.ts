@@ -51,7 +51,13 @@ export class OrderFormComponent {
 
   placeOrder(side, order) {
     // add side and timebased random unique identifier id
-    let newOrder = Object.assign({}, order, {side: side, id: v1()}); 
+    let d = new Date();
+    let newOrder = Object.assign({}, order, {
+      timestamp: d.getTime(), 
+      side: side, 
+      tradeId: v1()
+    }); 
+
     switch(side) {
       case 'BUY':
         return this.buy(newOrder);

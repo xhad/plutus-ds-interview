@@ -1,6 +1,7 @@
 export interface Order {
 
-  readonly id: string,
+  readonly tradeId: string,
+  readonly date: string,
   readonly side: string,
   readonly amount: number, 
   readonly price: number,
