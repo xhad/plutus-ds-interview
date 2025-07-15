@@ -66,11 +66,12 @@
   dependencies:
     tsickle "^0.2"
 
-"@angularclass/hmr-loader@3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@angularclass/hmr-loader/-/hmr-loader-3.0.2.tgz#c789182411f09d0b98929e6acbfd3e4aeaace597"
+"@angularclass/hmr-loader@3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@angularclass/hmr-loader/-/hmr-loader-3.0.4.tgz#3e3a07ba835650c9015629b8e187fe8dcd5527b8"
+  integrity sha512-DmBNPi03f3/XZ6FSkJ2Z6zL1itSOeWHQ9oYoXvdrqwusEr4UXQ8Jgk66qtknW1InYbvxE2uPfKAF8TLvXwyLIA==
   dependencies:
-    loader-utils "^0.2.15"
+    loader-utils "^1.1.0"
 
 "@angularclass/hmr@1.2.2":
   version "1.2.2"
